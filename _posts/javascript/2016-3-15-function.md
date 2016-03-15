@@ -47,3 +47,28 @@ function say(param1, param2){ ... }
 say('hello', 'world');
 ```
 
+.....
+
+
+### 클로저
+
+함수는 자신이 만들어진 스코프를 떠나면 그 스코프와 주위 스코프 변수에 연결된 채 존재한다.
+
+```
+function createInc(startValue){
+  return function(step){
+    startValue += step;
+    return startValue;
+  };
+}
+```
+
+createInc가 반환하는 함수는 startValue와 계속 연결되어 함수를 언제 호출하든 상태가 사라지지 않고 보존된다.
+
+```
+> var inc = createInc(5);
+> inc(1);
+6
+> inc(2);
+8
+```
