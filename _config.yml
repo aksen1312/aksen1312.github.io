@@ -1,5 +1,5 @@
 # Dependencies
-markdown:         redcarpet
+# markdown:         redcarpet -> 깃헙 페이지가 지원하지 않을예정. kramdown 으로 자동 대체됨.
 highlighter:      rouge
 
 # Permalinks
