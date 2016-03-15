@@ -52,7 +52,13 @@ say('hello', 'world');
 
 ### 클로저
 
-함수는 자신이 만들어진 스코프를 떠나면 그 스코프와 주위 스코프 변수에 연결된 채 존재한다.
+클로저는 만들어진 스코프(상위 스코프)와 연결된 채 존재하는 함수를 말한다. ('변수가 외부에서 왔다'라고도 말한다)
+
+함수를 호출할 때마다 매개변수와 변수를 저장할 새 환경(저장소)을 만든다. 그리고 함수 실행을 마치면 보통 해당 공간을 회수한다.(재귀적 호출이 n번 일어나는 경우, n개의 환경이 만들어진다.)
+
+함수는 선언될 때 자신이 생성된 스코프(상위 스코프)를 내부 프로퍼티[Scope]에 기록한다. 그리고 함수 호출시 생성되는 환경에 [Scope]를 통해서 outer라는 필드로 상위 스코프의 환경을 가리킨다.
+
+createInc가 반환하는 함수는 startValue와 계속 연결되어 함수를 언제 호출하든 상태가 사라지지 않고 보존된다.
 
 ```
 function createInc(startValue){
@@ -61,14 +67,20 @@ function createInc(startValue){
     return startValue;
   };
 }
-```
 
-createInc가 반환하는 함수는 startValue와 계속 연결되어 함수를 언제 호출하든 상태가 사라지지 않고 보존된다.
-
-```
 > var inc = createInc(5);
 > inc(1);
 6
 > inc(2);
 8
 ```
+
+##### inc가 클로저가 되는 순서는 다음과 같다.
+
+1. 함수 호출 `createInc(5);`를 실행하는 동안 createInc를 위한 새로운 환경이 만들어 지고, outer는 전역 환경(createInc의 상위 스코프 환경)을 가리킨다. 해당 환경에는 매개변수 startValue가 존재한다.
+2. 변수 inc에 함수 호출을 할당한 후 createInc를 위한 환경을 회수해야 하지만, inc의 [Scope]가 createInc의 환경을 가리키고 있기 때문에 회수하지 않는다.
+3. `inc(1);`를 실행하는 동안 inc를 위한 새로운 환경이 만들어지고, outer는 createInc의 환경(inc의 상위 스코프 환경)을 가리킨다. outer를 통하여 startValue(createInc의 환경)에 접근한다.
+
+
+
+
