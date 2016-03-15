@@ -6,7 +6,7 @@ highlighter:      pygments
 permalink:        pretty
 
 # Setup
-title:            TechTechTech!
+title:            Tech!
 tagline:          'Tech blog'
 description:      '기술 블로그입니당.'
 url:              https://aksen1312.github.io
@@ -17,6 +17,8 @@ author:
   url:            https://aksen1312.github.io
 
 paginate:         5
+
+google_analytics: UA-75134277-1
 
 # Custom vars
 version:          2.1.0
