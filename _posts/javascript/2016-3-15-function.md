@@ -2,7 +2,9 @@
 layout : post
 title : "함수 Function"
 published : true
-tags : [javascript, function]
+category : javascript
+tags : [function]
+permalink : /javascript/function
 ---
 
 자바스크립트에서 정의된 함수는 다음과 같이 3가지 역할을 한다.
