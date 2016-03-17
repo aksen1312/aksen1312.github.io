@@ -13,7 +13,7 @@ permalink : /javascript/function
 직접 호출할 수 있고 일반적인 함수로 동작한다.
 일반적인 함수는 소문자로 시작하는 것이 관례이다.
 
-```
+```javascript
 id('hello');
 ```
 
@@ -21,7 +21,7 @@ id('hello');
 함수를 `new` 연산자로 호출하면, 객체 팩토리인 생성자가 된다.
 생성자 이름은 대문자로 시작하는 것이 관례이다.
 
-```
+```javascript
 new Date();
 ```
 
@@ -29,7 +29,7 @@ new Date();
 함수를 객체 프로퍼티에 저장할 수 있다. 이런 함수를 메서드라 부르며, 객체를 통해 호출한다.
 메서드 이름은 소문자로 시작하는 것이 관례이다.
 
-```
+```javascript
 obj.method();
 ```
 
@@ -37,13 +37,13 @@ obj.method();
 
 * Parameter는 함수를 정의할때 사용한다.(formal parameter, formal argument라고도 부른다)
 
-```
+```javascript
 function say(param1, param2){ ... }
 ```
 
 * Argument는 함수를 호출할때 사용한다.(actual parameter, actual argument라고도 부른다)
 
-```
+```javascript
 say('hello', 'world');
 ```
 
@@ -60,7 +60,7 @@ say('hello', 'world');
 
 createInc가 반환하는 함수는 startValue와 계속 연결되어 함수를 언제 호출하든 상태가 사라지지 않고 보존된다.
 
-```
+```javascript
 function createInc(startValue){
   return function(step){
     startValue += step;
@@ -94,6 +94,7 @@ function createInc(startValue){
 함수도 객체이므로 각 함수에는 기본적으로 상속되는 메서드들이 있다. 그러한 메서드들로 this를 설정하여 함수를 호출 할 수 있다. 
 
 다음과 같은 객체 있다.
+
 ```javascript
 var jane = {
   name : 'Jane',
