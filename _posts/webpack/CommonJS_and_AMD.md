@@ -1,3 +1,12 @@
+---
+layout : post
+title : "CommonJS, AMD"
+published : true
+category : webpack
+tags : [CommonJS, AMD, webpack]
+permalink : /webpack/commonjs_and_amd
+---
+
 # CommonJS
 
 CommonJS는 자바스크립트를 클라이언트 기반에서만 사용하는 것 뿐만 아니라 서버에서도 사용할 수 있도록 하기 위한 명세.
